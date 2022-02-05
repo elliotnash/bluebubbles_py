@@ -14,11 +14,12 @@ python-socketio = {extras = ["asyncio_client"], version = "^5.5.1"}
 isort = "^5.10.1"
 flake8 = "^4.0.1"
 pytest = "^7.0.0"
+black = "^22.1.0"
 pre-commit = "^2.17.0"
 
 [tool.black]
 line-length = 100
-target-version = ['py10']
+target-version = ['py310']
 
 [tool.isort]
 profile = "black"
