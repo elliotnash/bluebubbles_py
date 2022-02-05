@@ -1,2 +1,2 @@
-Events
-______
+Event Documentation
+___________________

@@ -5,6 +5,8 @@ from typing import Coroutine
 
 
 class Client:
+    """An example docstring for a class definition."""
+
     def __init__(self):
         self.tasks = []
         self.loop = asyncio.get_event_loop()
@@ -22,6 +24,7 @@ class Client:
         self.__dispatch("on_connect")
 
     def run(self, url: str, password: str):
+        """An example docstring for a function definition."""
         print(f"Print called with url {url} and password {password}")
         try:
             self.loop.add_signal_handler(signal.SIGINT, self.loop.stop)

@@ -26,6 +26,8 @@ dev = { cmd = "python bluebubbles_py", help = "runs bluebubbles_py/__main__.py f
 lint = { cmd = "isort bluebubbles_py && black bluebubbles_py && flake8 bluebubbles_py", help = "conforms code style" }
 test =  { cmd = "pytest tests/unit", help = "runs unit tests" }
 docs = { cmd = "sphinx-build -b dirhtml docs dist/docs", help = "generates html docs" }
+pre_serve_docs = "task docs && python -m webbrowser -t http://localhost:8080"
+serve_docs = { cmd = "python -m http.server 8080 --directory dist/docs", help = "serves the documentation over a local webserver" }
 
 [tool.black]
 line-length = 100
