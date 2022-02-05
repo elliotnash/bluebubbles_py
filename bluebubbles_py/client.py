@@ -5,10 +5,11 @@ from typing import Coroutine
 
 
 class Client:
-    # event registrar
     def __init__(self):
+        self.tasks = []
         self.loop = asyncio.get_event_loop()
 
+    # event registrar
     def event(self, event: Coroutine):
         setattr(self, event.__name__, event)
 
@@ -18,7 +19,7 @@ class Client:
             asyncio.create_task(coro(*args, **kwargs), name=f"bluebubbles_py: {event}")
 
     async def start(self, url: str, password: str):
-        self.__dispatch("on_ready")
+        self.__dispatch("on_connect")
 
     def run(self, url: str, password: str):
         print(f"Print called with url {url} and password {password}")

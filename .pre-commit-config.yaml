@@ -1,31 +1,17 @@
 repos:
   - repo: local
     hooks:
-      - id: isort
-        name: Import Sorting (isort)
+      - id: lint
+        name: Linting and Formatting (isort, black, flake8)
         stages: [ commit ]
         language: system
-        entry: poetry run isort 
-        types: [ python ]
-
-      - id: black
-        name: Code Formatter (black)
-        stages: [ commit ]
-        language: system
-        entry: poetry run black
-        types: [ python ]
-
-      - id: flake8
-        name: Linting (flake8)
-        stages: [ commit ]
-        language: system
-        entry: poetry run flake8
+        entry: poetry run task lint
         types: [ python ]
 
       - id: pytest
         name: Testing (pytest)
         stages: [ commit ]
         language: system
-        entry: poetry run pytest tests/unit
+        entry: poetry run task test
         types: [ python ]
         pass_filenames: false
