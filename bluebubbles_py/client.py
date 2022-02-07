@@ -5,10 +5,9 @@ from typing import Coroutine
 
 
 class Client:
-    """An example docstring for a class definition."""
+    """A client connection to BlueBubbles, used to interface with the BlueBubbles API"""
 
     def __init__(self):
-        self.tasks = []
         self.loop = asyncio.get_event_loop()
 
     # event registrar
@@ -21,10 +20,22 @@ class Client:
             asyncio.create_task(coro(*args, **kwargs), name=f"bluebubbles_py: {event}")
 
     async def start(self, url: str, password: str):
+        """
+        Coroutine which starts the event loop from an already existing asyncio context.
+        Similar to :meth:`.run`, but from an async context.
+
+        Parameters:
+        """
         self.__dispatch("on_connect")
 
     def run(self, url: str, password: str):
-        """An example docstring for a function definition."""
+        """
+        Blocking method which starts the event loop and connects to the BlueBubbles server.
+
+        Parameters:
+            url (str): The BlueBubbles server URL to connect to.
+            password (str): The BlueBubbles password.
+        """
         print(f"Print called with url {url} and password {password}")
         try:
             self.loop.add_signal_handler(signal.SIGINT, self.loop.stop)
