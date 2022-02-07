@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 # BlueBubbles config file
-bluebubbles_py/config.ini
+bluebubbles_py/config.py
 
 # Distribution / packaging
 .Python

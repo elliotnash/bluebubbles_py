@@ -1,15 +1,9 @@
-import configparser
-from pathlib import Path
+import config
 
 import bluebubbles_py
 
 
 def main():
-    config = configparser.ConfigParser()
-    config.read(Path(__file__).parent.joinpath(Path("config.ini")))
-    url = config["config"]["url"]
-    password = config["config"]["password"]
-
     client = bluebubbles_py.Client()
 
     @client.event
@@ -20,7 +14,7 @@ def main():
     async def on_ready():
         print("client's cache is ready")
 
-    client.run(url, password)
+    client.run(config.url, config.password)
 
 
 if __name__ == "__main__":
