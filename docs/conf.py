@@ -12,17 +12,19 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../bluebubbles_py'))
+
+
+sys.path.insert(0, os.path.abspath("../bluebubbles_py"))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'bluebubbles_py'
-copyright = '2022, Elliot Nash'
-author = 'Elliot Nash'
+project = "bluebubbles_py"
+copyright = "2022, Elliot Nash"
+author = "Elliot Nash"
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.0'
+release = "0.1.0"
 
 # -- General configuration ---------------------------------------------------
 
@@ -32,11 +34,12 @@ release = '0.1.0'
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.coverage",
-    "sphinx.ext.napoleon"
+    "sphinx.ext.napoleon",
+    "sphinx_toolbox.decorators",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -48,9 +51,9 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'furo'
+html_theme = "furo"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]

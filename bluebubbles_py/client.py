@@ -11,8 +11,16 @@ class Client:
         self.loop = asyncio.get_event_loop()
 
     # event registrar
-    def event(self, event: Coroutine):
+    def event(self, event: Coroutine) -> Coroutine:
+        """
+        Registers a listener for a BlueBubbles event.
+        Events must be coroutines.
+
+        Parameters:
+            event (Coroutine): The event to register
+        """
         setattr(self, event.__name__, event)
+        return event
 
     def __dispatch(self, event: str, *args, **kwargs):
         coro = getattr(self, event, None)
@@ -25,6 +33,8 @@ class Client:
         Similar to :meth:`.run`, but from an async context.
 
         Parameters:
+            url (str): The BlueBubbles server URL to connect to.
+            password (str): The BlueBubbles password.
         """
         self.__dispatch("on_connect")
 
